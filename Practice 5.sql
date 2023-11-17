@@ -30,4 +30,23 @@ on cc.product_id = p.product_id
 group by cc.customer_id
 having COUNT(DISTINCT(p.product_category)) = (select COUNT(Distinct(product_category)) from products)
 
-/*Ex5:*/
+/*Ex5:the-number-of-employees-which-report-to-each-employee*/
+select e2.employee_id,e2.name, count(e2.employee_id) as reports_count, round(avg(e1.age *1.00),0) as average_age
+from employees e1
+inner join employees e2 on e1.reports_to = e2.employee_id
+group by  e2.employee_id,e2.name
+order by e2.employee_id as
+
+/*Ex6:leetcode.com/problems/list-the-products-ordered-in-a-period*/
+# Write your MySQL query statement below
+SELECT P.PRODUCT_NAME,SUM(O.UNIT) AS UNIT FROM PRODUCTS P,ORDERS O 
+WHERE P.PRODUCT_ID = O.PRODUCT_ID AND O.ORDER_DATE BETWEEN '2020-02-01' AND '2020-02-29' 
+GROUP BY O.PRODUCT_ID 
+HAVING UNIT >= 100 
+ORDER BY O.PRODUCT_ID;
+
+/*Ex7:Page With No Likes [Facebook SQL Interview Question]*/
+SELECT t1.page_id
+FROM pages AS t1
+WHERE t1.page_id NOT IN (SELECT page_id FROM page_likes)
+ORDER BY t1.page_id ASC;
