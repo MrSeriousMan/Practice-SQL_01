@@ -20,10 +20,18 @@ WHERE PAGE_ID NOT IN (
 		)
 ORDER BY page_id ASC;
 
-/*Ex5:*/
+/*Ex5: */
 
-/*Ex6:*/
+/*Ex6: */
 
-/*Ex7:*/
+/*Ex7: */
 
-/*Ex8:*/
+/*Ex8: */
+
+/*Ex9: */
+
+/*Ex10: */
+
+/*Ex11: */
+
+/*Ex12: */
